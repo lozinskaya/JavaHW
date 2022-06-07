@@ -21,6 +21,11 @@ public abstract class Document {
         this.title = title;
     }
 
+    public String getDocument() {
+        return "number=" + number +
+                ", title='" + title + '\'';
+    }
+
     @Override
     public String toString() {
         return "Document{" +

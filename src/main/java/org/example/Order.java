@@ -37,10 +37,19 @@ public abstract class Order extends Document{
 
     }
 
+    public String getOrder(){
+        return this.getDocument() +
+                ", employee='" + employee + '\'' +
+                ", text='" + text + '\'' +
+                ", status='" + status + '\'' +
+                ", title='" + this.getTitle() + '\'';
+    }
+
     @Override
     public String toString() {
         return "Order{" +
-                "employee='" + employee + '\'' +
+                this.getDocument() +
+                ", employee='" + employee + '\'' +
                 ", text='" + text + '\'' +
                 ", status='" + status + '\'' +
                 ", title='" + this.getTitle() + '\'' +

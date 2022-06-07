@@ -28,7 +28,8 @@ public class Letter extends Document{
     @Override
     public String toString() {
         return "Letter{" +
-                "from='" + from + '\'' +
+                this.getDocument() +
+                ", from='" + from + '\'' +
                 ", to='" + to + '\'' +
                 '}';
     }
