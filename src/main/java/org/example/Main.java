@@ -19,11 +19,15 @@ public class Main {
         orderDismissal.setReasonDismissal("Невыполнение должностных обязанностей");
         System.out.println(orderDismissal);
 
+        System.out.println("ИЗМЕНЕНИЕ СТАТУСОВ");
+
         orderAcceptanceToWork.setStatus("ИСПОЛНЕН");
         orderDismissal.setStatus("ИСПОЛНЕН");
 
         System.out.println(orderAcceptanceToWork);
         System.out.println(orderDismissal);
+
+        System.out.println("ПОВТОРНАЯ ПОПЫТКА ИЗМЕНЕНИЯ СТАТУСОВ");
 
         orderAcceptanceToWork.setStatus("СОЗДАН");
         orderDismissal.setStatus("СОЗДАН");

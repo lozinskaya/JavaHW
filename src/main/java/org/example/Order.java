@@ -31,10 +31,8 @@ public abstract class Order extends Document{
     public void setStatus(String status) {
         if ((this.status == "СОЗДАН") & (status == "ИСПОЛНЕН"))
             this.status = status;
-        else if (this.status == "ИСПОЛНЕН")
+        else
             System.out.println("Статус исполнен нельзя изменить");
-        else System.out.println("Ошибка при изменении статуса");
-
     }
 
     public String getOrder(){
