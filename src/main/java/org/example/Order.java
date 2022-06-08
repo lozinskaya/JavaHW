@@ -6,8 +6,8 @@ public abstract class Order extends Document{
     private String text;
     private String status;
 
-    public Order(int number, String employee) {
-        super(number);
+    public Order(int number, char simple, String employee) {
+        super(number, simple);
         this.employee = employee;
         this.status = "СОЗДАН";
     }
@@ -37,20 +37,23 @@ public abstract class Order extends Document{
 
     public String getOrder(){
         return this.getDocument() +
+                (this.simple == 'y' ? "" :
                 ", employee='" + employee + '\'' +
                 ", text='" + text + '\'' +
                 ", status='" + status + '\'' +
-                ", title='" + this.getTitle() + '\'';
+                ", title='" + this.getTitle() + '\'');
     }
 
     @Override
     public String toString() {
         return "Order{" +
                 this.getDocument() +
-                ", employee='" + employee + '\'' +
-                ", text='" + text + '\'' +
-                ", status='" + status + '\'' +
-                ", title='" + this.getTitle() + '\'' +
-                '}';
+                (this.simple == 'y' ? "" :
+                        ", employee='" + employee + '\'' +
+                        ", text='" + text + '\'' +
+                        ", status='" + status + '\'' +
+                        ", title='" + this.getTitle() + '\''
+                )
+                + '}';
     }
 }

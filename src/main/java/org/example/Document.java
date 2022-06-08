@@ -4,9 +4,11 @@ public abstract class Document {
 
     private int number;
     private String title;
+    char simple;
 
-    public Document(int number) {
+    public Document(int number, char simple) {
         this.number = number;
+        this.simple = simple;
     }
 
     public int getNumber() {

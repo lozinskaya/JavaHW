@@ -4,8 +4,8 @@ public class OrderDismissal extends Order{
 
     private String reasonDismissal;
 
-    public OrderDismissal(int number, String employee) {
-        super(number, employee);
+    public OrderDismissal(int number, char simple, String employee) {
+        super(number, simple, employee);
     }
 
 
@@ -21,7 +21,9 @@ public class OrderDismissal extends Order{
     public String toString() {
         return "OrderDismissal{" +
                 this.getOrder() +
-                " reasonDismissal='" + reasonDismissal + '\'' +
-                '}';
+                (this.simple == 'y' ? "" :
+                        " reasonDismissal='" + reasonDismissal + '\''
+                )
+                + '}';
     }
 }

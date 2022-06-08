@@ -2,7 +2,7 @@ package org.example;
 
 public class OrderAcceptanceToWork extends Order{
 
-    public OrderAcceptanceToWork(int number, String employee) {
-        super(number, employee);
+    public OrderAcceptanceToWork(int number, char simple, String employee) {
+        super(number, simple, employee);
     }
 }

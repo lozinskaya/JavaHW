@@ -5,9 +5,10 @@ public class Letter extends Document{
     private String from;
     private String to;
 
-    public Letter(int number) {
-        super(number);
+    public Letter(int number, char simple) {
+        super(number, simple);
     }
+
 
     public String getFrom() {
         return from;
@@ -29,8 +30,10 @@ public class Letter extends Document{
     public String toString() {
         return "Letter{" +
                 this.getDocument() +
-                ", from='" + from + '\'' +
-                ", to='" + to + '\'' +
-                '}';
+                (this.simple == 'y' ? "" :
+                        ", from='" + from + '\'' +
+                        ", to='" + to + '\''
+                )
+                + '}';
     }
 }
