@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25ffe6a8-c419-454e-aff3-e1126e3f511d" name="Changes" comment="Add JavaDoc">
+    <list default="true" id="25ffe6a8-c419-454e-aff3-e1126e3f511d" name="Changes" comment="Add save to txt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/dao/implementations/LetterInterfImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dao/implementations/LetterInterfImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/dao/implementations/OrderInterfImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dao/implementations/OrderInterfImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/dao/interfaces/LetterInterf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dao/interfaces/LetterInterf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/dao/interfaces/OrderInterf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dao/interfaces/OrderInterf.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/main/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -130,7 +126,7 @@
       <option name="presentableId" value="Default" />
       <updated>1654536489446</updated>
       <workItem from="1654536491480" duration="36180000" />
-      <workItem from="1654765697540" duration="20542000" />
+      <workItem from="1654765697540" duration="21215000" />
     </task>
     <task id="LOCAL-00001" summary="Create abstract class document, order">
       <created>1654540612533</created>
@@ -174,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654787542495</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Add save to txt">
+      <created>1654801718079</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1654801718079</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,7 +201,8 @@
     <MESSAGE value="Add simple" />
     <MESSAGE value="Add connect with DB, get letter" />
     <MESSAGE value="Add JavaDoc" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add JavaDoc" />
+    <MESSAGE value="Add save to txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add save to txt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

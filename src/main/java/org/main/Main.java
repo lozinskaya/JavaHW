@@ -14,7 +14,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
@@ -102,20 +104,18 @@ public class Main {
             orderInterf.countEmployers();
 
             // Кол-во документов для каждого типа
-            long countLetters = (long) letters.size();
-            long countOrdersAccept = (long) ordersAccept.size();
-            long countOrdersDismiss = (long) ordersDismiss.size();
+            HashMap<String, Integer> statistics = new HashMap<>();
+            statistics.put("Количество писем ", (int) letters.size());
+            statistics.put("Количество приказов о приёме на работу ", (int) ordersAccept.size());
+            statistics.put("Количество приказов на увольнение ", (int) ordersDismiss.size());
 
             try(FileWriter writer = new FileWriter("statistics.txt", false))
             {
-                String text = "Количество писем " + countLetters;
-                writer.write(text);
-                writer.append('\n');
-                text = "Количество приказов о приёме на работу " + countOrdersAccept;
-                writer.write(text);
-                writer.append('\n');
-                text = "Количество приказов на увольнение " + countOrdersDismiss;
-                writer.write(text);
+                for (Map.Entry entry: statistics.entrySet()) {
+                    writer.write((String) entry.getKey() + entry.getValue());
+                    writer.append('\n');
+
+                }
                 writer.flush();
             }
             catch(IOException ex){
