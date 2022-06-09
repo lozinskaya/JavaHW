@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25ffe6a8-c419-454e-aff3-e1126e3f511d" name="Changes" comment="Fix toString">
+    <list default="true" id="25ffe6a8-c419-454e-aff3-e1126e3f511d" name="Changes" comment="Add simple">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/jdbc/PostgreSQLConnUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Document.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Letter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Letter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/OrderAcceptanceToWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/OrderAcceptanceToWork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/OrderDismissal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/OrderDismissal.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +22,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -50,7 +51,8 @@
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "database.query.execution"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -86,7 +88,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1654536489446</updated>
-      <workItem from="1654536491480" duration="24053000" />
+      <workItem from="1654536491480" duration="30747000" />
     </task>
     <task id="LOCAL-00001" summary="Create abstract class document, order">
       <created>1654540612533</created>
@@ -109,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654677995158</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add simple">
+      <created>1654679761881</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1654679761881</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,6 +139,7 @@
     <MESSAGE value="Create abstract class document, order" />
     <MESSAGE value="Fix toString, add change status" />
     <MESSAGE value="Fix toString" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix toString" />
+    <MESSAGE value="Add simple" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add simple" />
   </component>
 </project>
