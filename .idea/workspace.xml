@@ -4,10 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25ffe6a8-c419-454e-aff3-e1126e3f511d" name="Changes" comment="Add simple">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/jdbc/PostgreSQLConnUtils.java" afterDir="false" />
+    <list default="true" id="25ffe6a8-c419-454e-aff3-e1126e3f511d" name="Changes" comment="Add connect with DB, get letter">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/dao/implementations/LetterInterfImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/dao/implementations/OrderInterfImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/dao/interfaces/LetterInterf.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/dao/interfaces/OrderInterf.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/classes/Document.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Letter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/classes/Letter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/classes/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/OrderAcceptanceToWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/classes/OrderAcceptanceToWork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/OrderDismissal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/classes/OrderDismissal.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +29,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -28,6 +41,22 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+      </map>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -44,6 +73,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/natalalozinskaa/Documents/GitHub/JavaHW/src/main/java/org",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -57,16 +87,36 @@
   "keyToStringList": {
     "DatabaseDriversLRU": [
       "postgresql"
+    ],
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
+      "MySQL"
     ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.dao.interfaces" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/org" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/java/org/utils" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/org/dao/interfaces" />
+      <recent name="$PROJECT_DIR$/src/main/java/org/dao/implementations" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.dao.implementations" />
+    </key>
+  </component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+    <configuration name="org.main.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.main.Main" />
       <module name="JavaHW" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.main.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -76,7 +126,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.org.main.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -88,7 +138,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1654536489446</updated>
-      <workItem from="1654536491480" duration="30747000" />
+      <workItem from="1654536491480" duration="36180000" />
+      <workItem from="1654765697540" duration="17138000" />
     </task>
     <task id="LOCAL-00001" summary="Create abstract class document, order">
       <created>1654540612533</created>
@@ -118,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654679761881</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add connect with DB, get letter">
+      <created>1654758228670</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1654758228670</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,6 +198,17 @@
     <MESSAGE value="Fix toString, add change status" />
     <MESSAGE value="Fix toString" />
     <MESSAGE value="Add simple" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add simple" />
+    <MESSAGE value="Add connect with DB, get letter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add connect with DB, get letter" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.RuntimeException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

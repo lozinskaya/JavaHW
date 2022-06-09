@@ -1,4 +1,11 @@
-package org.example;
+package org.main;
+import org.classes.Letter;
+import org.classes.OrderAcceptanceToWork;
+import org.classes.OrderDismissal;
+import org.dao.implementations.LetterInterfImpl;
+//import org.dao.implementations.OrderAcceptanceToWorkInterfImpl;
+import org.dao.implementations.OrderInterfImpl;
+//import org.dao.interfaces.OrderAcceptanceToWorkInterf;
 import org.jdbc.PostgreSQLConnUtils;
 
 import java.io.IOException;
@@ -6,13 +13,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         // Задание 1
-        char simple;
+//        char simple;
 //        try {
 //            System.out.print("Выводить краткую информацию о документах ? (y/n) ");
 //            simple = (char) System.in.read();
@@ -59,10 +65,7 @@ public class Main {
 
         //Задание итоговое
 
-        List<Letter> result = new ArrayList<>();
-        String SQL_SELECT = "Select * from javahw.public.letters l left join javahw.public.document d on l.document_id=d.id";
-        Connection conn = PostgreSQLConnUtils.getMySQLConnection();
-
+        char simple;
         try {
             System.out.print("Выводить краткую информацию о документах ? (y/n) ");
             simple = (char) System.in.read();
@@ -70,32 +73,41 @@ public class Main {
             System.out.print("Ввели ");
             System.out.println(simple);
 
-            PreparedStatement preparedStatement = conn.prepareStatement(SQL_SELECT);
-            ResultSet resultSet = preparedStatement.executeQuery();
+            Connection conn = PostgreSQLConnUtils.getMySQLConnection();
 
-            while (resultSet.next()) {
-
-                int number = resultSet.getInt("document_id");
-                String title = resultSet.getString("title");
-                String from = resultSet.getString("letter_from");
-                String to = resultSet.getString("letter_to");
-
-                Letter letter = new Letter(number, simple);
-                letter.setTo(to);
-                letter.setFrom(from);
-                letter.setTitle(title);
-                result.add(letter);
-            }
-
-            for (Letter letter : result) {
+            LetterInterfImpl letterInterf = new LetterInterfImpl();
+            letterInterf.setConn(conn);
+            letterInterf.setSimple(simple);
+            List<Letter> letters = letterInterf.findAll();
+            for (Letter letter : letters) {
                 System.out.println(letter);
             }
 
-        } catch (SQLException e) {
-            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+            OrderInterfImpl orderInterf = new OrderInterfImpl();
+            orderInterf.setConn(conn);
+            orderInterf.setSimple(simple);
+            orderInterf.setTargetClass(OrderAcceptanceToWork.class);
+            List<OrderAcceptanceToWork> ordersAccept = orderInterf.findAll("accept");
+            for (OrderAcceptanceToWork orderAccept : ordersAccept) {
+                System.out.println(orderAccept);
+            }
+
+            OrderInterfImpl orderInterf1 = new OrderInterfImpl();
+            orderInterf1.setConn(conn);
+            orderInterf1.setSimple(simple);
+            orderInterf1.setTargetClass(OrderDismissal.class);
+            List<OrderDismissal> ordersDismiss = orderInterf1.findAll("dismiss");
+            for (OrderDismissal orderDismiss : ordersDismiss) {
+                System.out.println(orderDismiss);
+            }
+
+            // Кол-во документов для каждого типа
+            Long countLetters = (long) letters.size();
+            Long countOrdersAccept = (long) ordersAccept.size();
+            Long countOrdersDismiss = (long) ordersDismiss.size();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }
