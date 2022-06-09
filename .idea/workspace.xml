@@ -4,22 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25ffe6a8-c419-454e-aff3-e1126e3f511d" name="Changes" comment="Add connect with DB, get letter">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/dao/implementations/LetterInterfImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/dao/implementations/OrderInterfImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/dao/interfaces/LetterInterf.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/dao/interfaces/OrderInterf.java" afterDir="false" />
+    <list default="true" id="25ffe6a8-c419-454e-aff3-e1126e3f511d" name="Changes" comment="Add JavaDoc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/classes/Document.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Letter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/classes/Letter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/classes/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/OrderAcceptanceToWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/classes/OrderAcceptanceToWork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/OrderDismissal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/classes/OrderDismissal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/dao/implementations/LetterInterfImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dao/implementations/LetterInterfImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/dao/implementations/OrderInterfImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dao/implementations/OrderInterfImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/dao/interfaces/LetterInterf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dao/interfaces/LetterInterf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/dao/interfaces/OrderInterf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dao/interfaces/OrderInterf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/main/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +130,7 @@
       <option name="presentableId" value="Default" />
       <updated>1654536489446</updated>
       <workItem from="1654536491480" duration="36180000" />
-      <workItem from="1654765697540" duration="17138000" />
+      <workItem from="1654765697540" duration="20542000" />
     </task>
     <task id="LOCAL-00001" summary="Create abstract class document, order">
       <created>1654540612533</created>
@@ -176,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654758228670</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add JavaDoc">
+      <created>1654787542495</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1654787542495</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,7 +197,8 @@
     <MESSAGE value="Fix toString" />
     <MESSAGE value="Add simple" />
     <MESSAGE value="Add connect with DB, get letter" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add connect with DB, get letter" />
+    <MESSAGE value="Add JavaDoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add JavaDoc" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

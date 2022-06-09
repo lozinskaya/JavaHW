@@ -18,4 +18,6 @@ public interface OrderInterf<T> {
      * @see OrderInterfImpl#findAll
      */
     public List<T> findAll(String type) throws InstantiationException, IllegalAccessException;
+
+    public void countEmployers();
 }

@@ -8,6 +8,7 @@ import org.dao.implementations.OrderInterfImpl;
 //import org.dao.interfaces.OrderAcceptanceToWorkInterf;
 import org.jdbc.PostgreSQLConnUtils;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -92,19 +93,34 @@ public class Main {
                 System.out.println(orderAccept);
             }
 
-            OrderInterfImpl orderInterf1 = new OrderInterfImpl();
-            orderInterf1.setConn(conn);
-            orderInterf1.setSimple(simple);
-            orderInterf1.setTargetClass(OrderDismissal.class);
-            List<OrderDismissal> ordersDismiss = orderInterf1.findAll("dismiss");
+            orderInterf.setTargetClass(OrderDismissal.class);
+            List<OrderDismissal> ordersDismiss = orderInterf.findAll("dismiss");
             for (OrderDismissal orderDismiss : ordersDismiss) {
                 System.out.println(orderDismiss);
             }
 
+            orderInterf.countEmployers();
+
             // Кол-во документов для каждого типа
-            Long countLetters = (long) letters.size();
-            Long countOrdersAccept = (long) ordersAccept.size();
-            Long countOrdersDismiss = (long) ordersDismiss.size();
+            long countLetters = (long) letters.size();
+            long countOrdersAccept = (long) ordersAccept.size();
+            long countOrdersDismiss = (long) ordersDismiss.size();
+
+            try(FileWriter writer = new FileWriter("statistics.txt", false))
+            {
+                String text = "Количество писем " + countLetters;
+                writer.write(text);
+                writer.append('\n');
+                text = "Количество приказов о приёме на работу " + countOrdersAccept;
+                writer.write(text);
+                writer.append('\n');
+                text = "Количество приказов на увольнение " + countOrdersDismiss;
+                writer.write(text);
+                writer.flush();
+            }
+            catch(IOException ex){
+                System.out.println(ex.getMessage());
+            }
 
         } catch (Exception e) {
             e.printStackTrace();

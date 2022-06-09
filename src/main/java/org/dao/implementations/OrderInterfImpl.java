@@ -5,6 +5,8 @@ import org.classes.OrderDismissal;
 import org.dao.interfaces.LetterInterf;
 import org.dao.interfaces.OrderInterf;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.*;
@@ -70,6 +72,38 @@ public class OrderInterfImpl<T> implements OrderInterf {
             throw new RuntimeException(e);
         }
         return result;
+    }
+
+    @Override
+    public void countEmployers() {
+        String SQL_SELECT = "Select firstname, lastname, middlename, count(o.id) from javahw.public.employers left join orders o on employers.id = o.employee_id group by firstname, lastname, middlename";
+
+        try(FileWriter writer = new FileWriter("countEmployers.txt", false))
+        {
+            try {
+                PreparedStatement preparedStatement = conn.prepareStatement(SQL_SELECT);
+
+                ResultSet resultSet = preparedStatement.executeQuery();
+                String text;
+
+                while (resultSet.next()) {
+                    text =  resultSet.getString("lastname") + ' '
+                            + resultSet.getString("firstname") + ' '
+                            + resultSet.getString("middlename") + ' '
+                            + "количество приказов: "
+                            + resultSet.getString("count");
+                    writer.write(text);
+                    writer.append('\n');
+                }
+                writer.flush();
+
+            } catch (SQLException e) {
+                System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+            }
+        }
+        catch(IOException ex){
+            System.out.println(ex.getMessage());
+        }
     }
 
     /**
