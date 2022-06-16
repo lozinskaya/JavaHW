@@ -3,8 +3,6 @@ package org.utils.implementations;
 import org.utils.interfaces.MenuInterf;
 
 import java.io.IOException;
-import java.util.HashMap;
-
 public class MenuInterfImpl implements MenuInterf {
 
     private String question;

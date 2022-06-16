@@ -10,19 +10,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * Класс статистики
+ */
 public class StatisticInterfImpl implements StatisticInterf {
     private HashMap<String, Integer> resultDoc = new HashMap<>();
     private HashMap<String, Integer> resultEmp = new HashMap<>();
-    private List<Document> documents;
-    private List<Employee> employees;
 
-    public StatisticInterfImpl(List<Document> documents, List<Employee> employees) {
-        this.documents = documents;
-        this.employees = employees;
-        countDocByType(documents);
-        countEmployees(employees, documents);
-    }
-
+    /**
+     * Метод для вычисления кол-ва документов в разрезе типов документов
+     * @param documents список документов
+     */
     @Override
     public void countDocByType(List<Document> documents) {
         Integer countLetters = Math.toIntExact(documents.stream().filter(i -> i instanceof Letter).count());
@@ -34,9 +32,14 @@ public class StatisticInterfImpl implements StatisticInterf {
         Integer countOrdersDismiss = Math.toIntExact(documents.stream().filter(i -> i instanceof OrderDismissal).count());
         resultDoc.put("Количество приказов на увольнение ", countOrdersDismiss);
 
-        print("countDocByType.txt", resultDoc);
+        output("countDocByType.txt", resultDoc);
     }
 
+    /**
+     * Метод для вычисления кол-ва приказов для каждого сотрудника
+     * @param employees список сотрудников
+     * @param documents список документов
+     */
     @Override
     public void countEmployees(List<Employee> employees, List<Document> documents) {
         List<Order> orders = (List) documents.stream().filter(i -> i instanceof Order).collect(Collectors.toList());
@@ -48,11 +51,16 @@ public class StatisticInterfImpl implements StatisticInterf {
             employee.setCountOrders(count);
         }
 
-        print("countEmployees.txt", resultEmp);
+        output("countEmployees.txt", resultEmp);
     }
 
+    /**
+     * Метод для вывода результатов выичслений в файл
+     * @param fileName название файла
+     * @param result данные для вывода
+     */
     @Override
-    public void print(String fileName, HashMap<String, Integer> result) {
+    public void output(String fileName, HashMap<String, Integer> result) {
         try(FileWriter writer = new FileWriter(fileName, false))
         {
             for (Map.Entry entry: result.entrySet()) {
