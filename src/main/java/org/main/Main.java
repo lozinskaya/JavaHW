@@ -79,7 +79,6 @@ public class Main {
             simple = menu.run();
 
             ResultInterf resultInterf = new ResultInterfImpl();
-            StatisticInterf statistic = new StatisticInterfImpl();
             List<Document> Documents = new ArrayList<>();
 
             Connection conn = PostgreSQLConnUtils.getMySQLConnection();
@@ -99,12 +98,11 @@ public class Main {
             resultInterf.print(ordersDismiss);
             Documents.addAll(ordersDismiss);
 
-            statistic.countDocByType(Documents);
-
             EmployeeInterf employeeInterf = new EmployeeInterfImpl(conn);
             List<Employee> employees = employeeInterf.findAll();
-            statistic.countEmployees(employees, Documents);
             resultInterf.print(employees);
+
+            StatisticInterf statistic = new StatisticInterfImpl(Documents,employees);
 
         } catch (Exception e) {
             e.printStackTrace();

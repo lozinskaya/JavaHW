@@ -4,27 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25ffe6a8-c419-454e-aff3-e1126e3f511d" name="Changes" comment="Fix save to txt">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/model/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/source/implementations/EmployeeInterfImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/source/interfaces/EmployeeInterf.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/utils/implementations/MenuInterfImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/utils/implementations/ResultInterfImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/utils/implementations/StatisticInterfImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/utils/interfaces/MenuInterf.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/utils/interfaces/ResultInterf.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/utils/interfaces/StatisticInterf.java" afterDir="false" />
+    <list default="true" id="25ffe6a8-c419-454e-aff3-e1126e3f511d" name="Changes" comment="Upd by comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/classes/Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/model/Document.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/classes/Letter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/model/Letter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/classes/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/model/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/classes/OrderAcceptanceToWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/model/OrderAcceptanceToWork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/classes/OrderDismissal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/model/OrderDismissal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/dao/implementations/LetterInterfImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/source/implementations/LetterInterfImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/dao/implementations/OrderInterfImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/source/implementations/OrderInterfImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/dao/interfaces/LetterInterf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/source/interfaces/LetterInterf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/dao/interfaces/OrderInterf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/source/interfaces/OrderInterf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/main/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +126,7 @@
       <updated>1654536489446</updated>
       <workItem from="1654536491480" duration="36180000" />
       <workItem from="1654765697540" duration="21479000" />
-      <workItem from="1655308359040" duration="13663000" />
+      <workItem from="1655308359040" duration="14029000" />
     </task>
     <task id="LOCAL-00001" summary="Create abstract class document, order">
       <created>1654540612533</created>
@@ -203,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654802291557</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Upd by comments">
+      <created>1655392692311</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1655392692311</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,7 +217,8 @@
     <MESSAGE value="Add JavaDoc" />
     <MESSAGE value="Add save to txt" />
     <MESSAGE value="Fix save to txt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix save to txt" />
+    <MESSAGE value="Upd by comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Upd by comments" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

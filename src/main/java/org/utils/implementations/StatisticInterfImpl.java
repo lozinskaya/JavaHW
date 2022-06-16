@@ -13,20 +13,25 @@ import java.util.stream.Collectors;
 public class StatisticInterfImpl implements StatisticInterf {
     private HashMap<String, Integer> resultDoc = new HashMap<>();
     private HashMap<String, Integer> resultEmp = new HashMap<>();
-    private Integer countLetters = 0;
-    private Integer countOrdersAccept = 0;
-    private Integer countOrdersDismiss = 0;
-    private Integer countOrders = 0;
+    private List<Document> documents;
+    private List<Employee> employees;
+
+    public StatisticInterfImpl(List<Document> documents, List<Employee> employees) {
+        this.documents = documents;
+        this.employees = employees;
+        countDocByType(documents);
+        countEmployees(employees, documents);
+    }
 
     @Override
     public void countDocByType(List<Document> documents) {
-        countLetters = Math.toIntExact(documents.stream().filter(i -> i instanceof Letter).count());
+        Integer countLetters = Math.toIntExact(documents.stream().filter(i -> i instanceof Letter).count());
         resultDoc.put("Количество писем ", countLetters);
 
-        countOrdersAccept = Math.toIntExact(documents.stream().filter(i -> i instanceof OrderAcceptanceToWork).count());
+        Integer countOrdersAccept = Math.toIntExact(documents.stream().filter(i -> i instanceof OrderAcceptanceToWork).count());
         resultDoc.put("Количество приказов о приёме на работу ", countOrdersAccept);
 
-        countOrdersDismiss = Math.toIntExact(documents.stream().filter(i -> i instanceof OrderDismissal).count());
+        Integer countOrdersDismiss = Math.toIntExact(documents.stream().filter(i -> i instanceof OrderDismissal).count());
         resultDoc.put("Количество приказов на увольнение ", countOrdersDismiss);
 
         print("countDocByType.txt", resultDoc);
@@ -43,7 +48,6 @@ public class StatisticInterfImpl implements StatisticInterf {
             employee.setCountOrders(count);
         }
 
-
         print("countEmployees.txt", resultEmp);
     }
 
@@ -54,7 +58,6 @@ public class StatisticInterfImpl implements StatisticInterf {
             for (Map.Entry entry: result.entrySet()) {
                 writer.write((String) entry.getKey() + entry.getValue());
                 writer.append('\n');
-
             }
             writer.flush();
         }
