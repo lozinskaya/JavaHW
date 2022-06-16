@@ -1,6 +1,4 @@
-package org.classes;
-
-import java.io.IOException;
+package org.model;
 
 /**
  * Класс Приказ со свойствами <b>employee</b>, <b>text</b> и <b>status</b>.

@@ -1,12 +1,8 @@
-package org.dao.implementations;
+package org.source.implementations;
 
-import org.classes.Order;
-import org.classes.OrderDismissal;
-import org.dao.interfaces.LetterInterf;
-import org.dao.interfaces.OrderInterf;
+import org.model.OrderDismissal;
+import org.source.interfaces.OrderInterf;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.*;
@@ -27,6 +23,12 @@ public class OrderInterfImpl<T> implements OrderInterf {
     /** Класс получаемого объекта из БД */
     private Class<T> targetClass;
 
+    public OrderInterfImpl(Connection conn, char simple, Class<T> targetClass) {
+        this.conn = conn;
+        this.simple = simple;
+        this.targetClass = targetClass;
+    }
+
     /**
      * Метод для получения всех приказов из базы данных
      * @param type тип приказа
@@ -34,7 +36,7 @@ public class OrderInterfImpl<T> implements OrderInterf {
      */
     public List<T> findAll(String type) throws InstantiationException, IllegalAccessException {
         List<T> result = new ArrayList<>();
-        String SQL_SELECT = "Select * from javahw.public.orders o left join javahw.public.document d on o.document_id=d.id left join employers e on o.employee_id=e.id left join ordersdismiss o2 on o.id = o2.order_id left join reasonsdismiss r on r.id = o2.reason_id where o.type=?";
+        String SQL_SELECT = "Select * from javahw.public.orders o left join javahw.public.document d on o.document_id=d.id left join employees e on o.employee_id=e.id left join ordersdismiss o2 on o.id = o2.order_id left join reasonsdismiss r on r.id = o2.reason_id where o.type=?";
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(SQL_SELECT);
             preparedStatement.setString(1, type);
@@ -74,59 +76,11 @@ public class OrderInterfImpl<T> implements OrderInterf {
         return result;
     }
 
-    @Override
-    public void countEmployers() {
-        String SQL_SELECT = "Select firstname, lastname, middlename, count(o.id) from javahw.public.employers left join orders o on employers.id = o.employee_id group by firstname, lastname, middlename";
-
-        try(FileWriter writer = new FileWriter("countEmployers.txt", false))
-        {
-            try {
-                PreparedStatement preparedStatement = conn.prepareStatement(SQL_SELECT);
-
-                ResultSet resultSet = preparedStatement.executeQuery();
-                String text;
-
-                while (resultSet.next()) {
-                    text =  resultSet.getString("lastname") + ' '
-                            + resultSet.getString("firstname") + ' '
-                            + resultSet.getString("middlename") + ' '
-                            + "количество приказов: "
-                            + resultSet.getString("count");
-                    writer.write(text);
-                    writer.append('\n');
-                }
-                writer.flush();
-
-            } catch (SQLException e) {
-                System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
-            }
-        }
-        catch(IOException ex){
-            System.out.println(ex.getMessage());
-        }
-    }
-
     /**
      * Процедура определения класса получаемого объекта из БД {@link OrderInterfImpl#targetClass}
      * @param targetClass получаемый класс
      */
-    public void setTargetClass(Class<T> targetClass) {
+    public void setTargetClass(Class targetClass) {
         this.targetClass = targetClass;
-    }
-
-    /**
-     * Процедура определения соединения с БД {@link OrderInterfImpl#conn}
-     * @param conn соединение с бд
-     */
-    public void setConn(Connection conn) {
-        this.conn = conn;
-    }
-
-    /**
-     * Процедура определения формата вывода {@link OrderInterfImpl#simple}
-     * @param simple формат вывода
-     */
-    public void setSimple(char simple) {
-        this.simple = simple;
     }
 }

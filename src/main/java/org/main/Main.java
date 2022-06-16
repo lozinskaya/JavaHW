@@ -1,19 +1,24 @@
 package org.main;
-import org.classes.Letter;
-import org.classes.OrderAcceptanceToWork;
-import org.classes.OrderDismissal;
-import org.dao.implementations.LetterInterfImpl;
+import org.model.*;
+import org.source.implementations.EmployeeInterfImpl;
+import org.source.implementations.LetterInterfImpl;
 //import org.dao.implementations.OrderAcceptanceToWorkInterfImpl;
-import org.dao.implementations.OrderInterfImpl;
+import org.source.implementations.OrderInterfImpl;
 //import org.dao.interfaces.OrderAcceptanceToWorkInterf;
 import org.jdbc.PostgreSQLConnUtils;
+import org.source.interfaces.EmployeeInterf;
+import org.source.interfaces.LetterInterf;
+import org.source.interfaces.OrderInterf;
+import org.utils.implementations.MenuInterfImpl;
+import org.utils.implementations.ResultInterfImpl;
+import org.utils.implementations.StatisticInterfImpl;
+import org.utils.interfaces.ResultInterf;
+import org.utils.interfaces.StatisticInterf;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -70,57 +75,36 @@ public class Main {
 
         char simple;
         try {
-            System.out.print("Выводить краткую информацию о документах ? (y/n) ");
-            simple = (char) System.in.read();
-            if (simple != 'y' & simple != 'n') throw new IOException("Введены неверные данные");
-            System.out.print("Ввели ");
-            System.out.println(simple);
+            MenuInterfImpl menu = new MenuInterfImpl();
+            simple = menu.run();
+
+            ResultInterf resultInterf = new ResultInterfImpl();
+            StatisticInterf statistic = new StatisticInterfImpl();
+            List<Document> Documents = new ArrayList<>();
 
             Connection conn = PostgreSQLConnUtils.getMySQLConnection();
 
-            LetterInterfImpl letterInterf = new LetterInterfImpl();
-            letterInterf.setConn(conn);
-            letterInterf.setSimple(simple);
+            LetterInterf letterInterf = new LetterInterfImpl(conn, simple);
             List<Letter> letters = letterInterf.findAll();
-            for (Letter letter : letters) {
-                System.out.println(letter);
-            }
+            resultInterf.print(letters);
+            Documents.addAll(letters);
 
-            OrderInterfImpl orderInterf = new OrderInterfImpl();
-            orderInterf.setConn(conn);
-            orderInterf.setSimple(simple);
-            orderInterf.setTargetClass(OrderAcceptanceToWork.class);
+            OrderInterf orderInterf = new OrderInterfImpl(conn, simple, OrderAcceptanceToWork.class);
             List<OrderAcceptanceToWork> ordersAccept = orderInterf.findAll("accept");
-            for (OrderAcceptanceToWork orderAccept : ordersAccept) {
-                System.out.println(orderAccept);
-            }
+            resultInterf.print(ordersAccept);
+            Documents.addAll(ordersAccept);
 
             orderInterf.setTargetClass(OrderDismissal.class);
             List<OrderDismissal> ordersDismiss = orderInterf.findAll("dismiss");
-            for (OrderDismissal orderDismiss : ordersDismiss) {
-                System.out.println(orderDismiss);
-            }
+            resultInterf.print(ordersDismiss);
+            Documents.addAll(ordersDismiss);
 
-            orderInterf.countEmployers();
+            statistic.countDocByType(Documents);
 
-            // Кол-во документов для каждого типа
-            HashMap<String, Integer> statistics = new HashMap<>();
-            statistics.put("Количество писем ", (int) letters.size());
-            statistics.put("Количество приказов о приёме на работу ", (int) ordersAccept.size());
-            statistics.put("Количество приказов на увольнение ", (int) ordersDismiss.size());
-
-            try(FileWriter writer = new FileWriter("statistics.txt", false))
-            {
-                for (Map.Entry entry: statistics.entrySet()) {
-                    writer.write((String) entry.getKey() + entry.getValue());
-                    writer.append('\n');
-
-                }
-                writer.flush();
-            }
-            catch(IOException ex){
-                System.out.println(ex.getMessage());
-            }
+            EmployeeInterf employeeInterf = new EmployeeInterfImpl(conn);
+            List<Employee> employees = employeeInterf.findAll();
+            statistic.countEmployees(employees, Documents);
+            resultInterf.print(employees);
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -1,4 +1,4 @@
-package org.classes;
+package org.model;
 
 /**
  * Класс Документ со свойствами <b>number</b>, <b>title</b> и <b>simple</b>.

@@ -1,4 +1,4 @@
-package org.classes;
+package org.model;
 
 /**
  * Класс Приказ о приеме на работу со свойствами родительского класса {@link Order}.

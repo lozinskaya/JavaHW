@@ -1,7 +1,7 @@
-package org.dao.implementations;
+package org.source.implementations;
 
-import org.classes.Letter;
-import org.dao.interfaces.LetterInterf;
+import org.model.Letter;
+import org.source.interfaces.LetterInterf;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,6 +19,11 @@ public class LetterInterfImpl implements LetterInterf {
 
     private Connection conn;
     private char simple;
+
+    public LetterInterfImpl(Connection conn, char simple) {
+        this.conn = conn;
+        this.simple = simple;
+    }
 
     /**
      * Метод для получения всех писем из базы данных
@@ -51,21 +56,5 @@ public class LetterInterfImpl implements LetterInterf {
             System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
         }
         return result;
-    }
-
-    /**
-     * Процедура определения соединения с БД {@link LetterInterfImpl#conn}
-     * @param conn соединение с бд
-     */
-    public void setConn(Connection conn) {
-        this.conn = conn;
-    }
-
-    /**
-     * Процедура определения формата вывода {@link LetterInterfImpl#simple}
-     * @param simple формат вывода
-     */
-    public void setSimple(char simple) {
-        this.simple = simple;
     }
 }

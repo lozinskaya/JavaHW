@@ -1,4 +1,4 @@
-package org.classes;
+package org.model;
 
 /**
  * Класс Приказ об увольнении со свойством <b>reasonDismissal</b>.

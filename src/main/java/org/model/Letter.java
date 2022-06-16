@@ -1,4 +1,4 @@
-package org.classes;
+package org.model;
 
 /**
  * Класс Письмо со свойствами <b>from</b> и <b>to</b>.
