@@ -12,11 +12,18 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Класс для получения всех документов из БД
+ */
 public class SourceInterfImpl implements SourceInterf {
-    /** Соединение с БД */
-    private Connection conn;
-    /** Формат вывода */
-    private char simple;
+    /**
+     * Соединение с БД
+     */
+    private final Connection conn;
+    /**
+     * Формат вывода
+     */
+    private final char simple;
     List<Document> Documents = new ArrayList<>();
 
     public SourceInterfImpl(Connection conn, char simple) {
@@ -24,6 +31,13 @@ public class SourceInterfImpl implements SourceInterf {
         this.simple = simple;
     }
 
+    /**
+     * Методы для получения докуметнов из БД
+     *
+     * @return Список документов (приказы и письма)
+     * @throws InstantiationException
+     * @throws IllegalAccessException
+     */
     @Override
     public List<Document> fetchData() throws InstantiationException, IllegalAccessException {
         LetterInterf letterInterf = new LetterInterfImpl(conn, simple);
